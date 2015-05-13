@@ -7,14 +7,16 @@ class ConversationTransformer extends \League\Fractal\TransformerAbstract
      *
      * @var array
      */
-    protected $availableIncludes = [
-        'messages',
-        'swap'
-    ];
+    protected $availableIncludes
+        = [
+            'messages',
+            'swap'
+        ];
 
     public function transform(\Conversation $conversation)
     {
         return [
+            'id'        => $conversation->id,
             'subject'   => $conversation->subject,
             'createdAt' => $conversation->created_at->formatLocalized('%d. %B %Y')
         ];

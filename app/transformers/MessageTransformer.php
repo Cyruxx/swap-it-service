@@ -7,14 +7,16 @@ class MessageTransformer extends \League\Fractal\TransformerAbstract
      *
      * @var array
      */
-    protected $availableIncludes = [
-        'fromUser',
-        'toUser'
-    ];
+    protected $availableIncludes
+        = [
+            'fromUser',
+            'toUser'
+        ];
 
     public function transform(\Message $message)
     {
         return [
+            'id'        => $message->id,
             'message'   => $message->message,
             'createdAt' => $message->created_at->formatLocalized('%d. %B %Y')
         ];

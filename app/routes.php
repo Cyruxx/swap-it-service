@@ -27,5 +27,7 @@ Route::api('v1', function()
     Route::post('/swaps/offer/accept/remove/{swapId}', 'OfferController@removeAccept');
 
     Route::get('/messages', 'MessageController@index');
+    Route::post('/messages/create', 'MessageController@store');
+    Route::get('/messages/{convId}', 'MessageController@showByConversation');
     Route::get('/conversations', 'ConversationController@index');
 });
